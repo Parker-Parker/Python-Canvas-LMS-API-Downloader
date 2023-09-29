@@ -1,35 +1,77 @@
+import datetime
 import requests
 import json
 
 
+def request_cached(url_string):
+
+    # Opening JSON file
+    f = open('Downloads/cached_requests.json')
+    cache = json.load(f)
+    f.close()
+
+    new_request = {}
+
+    if url_string in cache:
+        #Grab local copy
+        print(f"retrieved cached copy of {url_string}")
+        
+        r = open(cache[url_string]["local_copy_location"])
+        new_request = json.load(r)
+        r.close()
+
+    else:
+        #Grab web copy
+        print(f"retrieved web copy of {url_string}")
+
+
+        r = requests.get(url_string)
+        new_request = r.json()
+        #Add to cache
+
+        new_cache_file_string = f'Downloads/JSON/{datetime.datetime.utcnow()}.json'
+        with open(new_cache_file_string, "w") as outfile:
+            json.dump(new_request, outfile)
+            
+        f = open('Downloads/cached_requests.json')
+        cache = json.load(f)
+        f.close()
+
+        cache[url_string] = {"local_copy_location": new_cache_file_string}
+        with open('Downloads/cached_requests.json', "w") as cache_file:
+            json.dump(cache, cache_file)
+          
+    
+    # f.close()
+
+    return new_request
 
 
 
-
-# Opening JSON file
-f = open('Downloads/cached_requests.json')
+# # Opening JSON file
+# f = open('Downloads/cached_requests.json')
  
-# returns JSON object as
-# a dictionary
-data = json.load(f)
+# # returns JSON object as
+# # a dictionary
+# data = json.load(f)
 
-# # Closing file
-f.close()
+# # # Closing file
+# f.close()
 
-# Data to be written
-dictionary = {
-    "name": "fghddfgh",
-    "rollno": 56,
-    "cgpa": 8.6,
-    "phonenumber": "9hjkgh70500"
-}
+# # Data to be written
+# dictionary = {
+#     "name": "fghddfgh",
+#     "rollno": 56,
+#     "cgpa": 8.6,
+#     "phonenumber": "9hjkgh70500"
+# }
 
-# json_dict = {}
-data["exampleurl.com/api/getdeeznuts3"] = dictionary
+# # json_dict = {}
+# data["exampleurl.com/api/getdeeznuts3"] = dictionary
 
 
-with open('Downloads/cached_requests.json', "w") as outfile:
-    json.dump(data, outfile)
+# with open('Downloads/cached_requests.json', "w") as outfile:
+#     json.dump(data, outfile)
 
 
 
