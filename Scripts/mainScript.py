@@ -12,7 +12,16 @@ f = open('Downloads/cached_requests.json')
 cache = json.load(f)
 f.close()
 
+# Creating app window
+app = Tk() 
+ 
+# Defining title of the app
+app.title("GUI JSON viewer ") 
 
+
+ 
+# Calling main() 
+app.mainloop()
 
 
 
