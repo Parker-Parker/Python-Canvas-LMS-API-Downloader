@@ -15,7 +15,7 @@ from tkinter import ttk
 
 def create_treeview(master:Tk, data):
     treeview = ttk.Treeview(master)
-    treeview.pack() 
+    treeview.grid(row=0,column=0,sticky="nsew")
     add_item_treeview(treeview, "", data)
     return treeview
 

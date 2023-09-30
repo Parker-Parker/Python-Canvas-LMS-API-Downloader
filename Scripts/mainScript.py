@@ -20,7 +20,11 @@ cache = json.load(f)
 f.close()
 
 # Creating app window
-app = Tk() 
+app = Tk()
+app.rowconfigure(0, weight=1)
+app.columnconfigure(0, weight=1)
+app.geometry("1000x1000")
+
  
 # Defining title of the app
 app.title("GUI JSON viewer ") 
