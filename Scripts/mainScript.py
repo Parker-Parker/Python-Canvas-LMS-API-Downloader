@@ -14,10 +14,6 @@ import tree_view
 
 
 
-# # Opening JSON file
-# f = open('Downloads/cached_requests.json')
-# cache = json.load(f)
-# f.close()
 
 # Creating app window
 app = Tk()
@@ -30,7 +26,19 @@ app.geometry("1000x1000")
 app.title("GUI JSON viewer ") 
 
 
-data = request_cached("http://ip-api.com/json/23.43.252.19")
+
+
+# # sample data
+
+f = open('Downloads/cached_requests.json')
+data = json.load(f)
+f.close()
+
+# data = request_cached("http://ip-api.com/json/23.43.252.19")
+
+# data = request_cached('https://api.github.com/events')
+
+# # end sample data
 
 print(json.dumps(data))
 

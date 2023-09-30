@@ -24,14 +24,16 @@ def add_dict_treeview(treeview:ttk.Treeview, section_title:str, data:dict):
         treeview.insert(section_title, 'end', section_title+key, text = key)
         add_item_treeview(treeview, section_title+key, data[key])
     
-def add_list_treeview(treeview:ttk.Treeview, section_title:str, data:dict):
-    # for key in data.keys():
-    #     treeview.insert(section_title, 'end', key, text = key)
-    #     add_item_treeview(treeview, key, data[key])
+def add_list_treeview(treeview:ttk.Treeview, section_title:str, data:list):
+    index = 0
+    for item in data:
+        treeview.insert(section_title, 'end', section_title+str(index), text = f'[{index}]')
+        add_item_treeview(treeview, section_title+str(index), item)
+        index+=1
 
-    data_s = f'TODO: implement handling for {data}'
-    treeview.insert(section_title, 'end', section_title+data_s, text = data_s)
-    #TODO: make this handle dictionaries, lists, etc
+    # data_s = f'TODO: implement handling for {data}'
+    # treeview.insert(section_title, 'end', section_title+data_s, text = data_s)
+    # #TODO: make this handle dictionaries, lists, etc
 
 
 def add_item_treeview(treeview:ttk.Treeview, section_title:str, data):
