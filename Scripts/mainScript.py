@@ -14,10 +14,10 @@ import tree_view
 
 
 
-# Opening JSON file
-f = open('Downloads/cached_requests.json')
-cache = json.load(f)
-f.close()
+# # Opening JSON file
+# f = open('Downloads/cached_requests.json')
+# cache = json.load(f)
+# f.close()
 
 # Creating app window
 app = Tk()
@@ -30,10 +30,11 @@ app.geometry("1000x1000")
 app.title("GUI JSON viewer ") 
 
 
+data = request_cached("http://ip-api.com/json/23.43.252.19")
 
+print(json.dumps(data))
 
-print(cache)
-tree_view.create_treeview(app,cache)
+tree_view.create_treeview(app,data)
  
 # Calling main() 
 app.mainloop()

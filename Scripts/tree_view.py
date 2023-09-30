@@ -21,8 +21,8 @@ def create_treeview(master:Tk, data):
 
 def add_dict_treeview(treeview:ttk.Treeview, section_title:str, data:dict):
     for key in data.keys():
-        treeview.insert(section_title, 'end', key, text = key)
-        add_item_treeview(treeview, key, data[key])
+        treeview.insert(section_title, 'end', section_title+key, text = key)
+        add_item_treeview(treeview, section_title+key, data[key])
     
 def add_list_treeview(treeview:ttk.Treeview, section_title:str, data:dict):
     # for key in data.keys():
@@ -30,7 +30,7 @@ def add_list_treeview(treeview:ttk.Treeview, section_title:str, data:dict):
     #     add_item_treeview(treeview, key, data[key])
 
     data_s = f'TODO: implement handling for {data}'
-    treeview.insert(section_title, 'end', data_s, text = data_s)
+    treeview.insert(section_title, 'end', section_title+data_s, text = data_s)
     #TODO: make this handle dictionaries, lists, etc
 
 
@@ -41,7 +41,7 @@ def add_item_treeview(treeview:ttk.Treeview, section_title:str, data):
         add_list_treeview(treeview,section_title,data)
     else:
         data_s = f'TODO: implement handling for {data}'
-        treeview.insert(section_title, 'end', data_s, text = data_s)
+        treeview.insert(section_title, 'end', section_title+data_s, text = data_s)
         #TODO: make this handle dictionaries, lists, etc
 
 
