@@ -31,18 +31,14 @@ def add_list_treeview(treeview:ttk.Treeview, section_title:str, data:list):
         add_item_treeview(treeview, section_title+str(index), item)
         index+=1
 
-    # data_s = f'TODO: implement handling for {data}'
-    # treeview.insert(section_title, 'end', section_title+data_s, text = data_s)
-    # #TODO: make this handle dictionaries, lists, etc
-
-
 def add_item_treeview(treeview:ttk.Treeview, section_title:str, data):
     if isinstance(data, dict):
         add_dict_treeview(treeview,section_title,data)
     elif isinstance(data, list):
         add_list_treeview(treeview,section_title,data)
     else:
-        data_s = f'TODO: implement handling for {data}'
+        # data_s = f'TODO: implement handling for {data}'
+        data_s = f'{type(data)}:{data}'
         treeview.insert(section_title, 'end', section_title+data_s, text = data_s)
         #TODO: make this handle dictionaries, lists, etc
 

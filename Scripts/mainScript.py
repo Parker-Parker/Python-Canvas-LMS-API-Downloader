@@ -30,11 +30,11 @@ app.title("GUI JSON viewer ")
 
 # # sample data
 
-f = open('Downloads/cached_requests.json')
-data = json.load(f)
-f.close()
+# f = open('Downloads/cached_requests.json')
+# data = json.load(f)
+# f.close()
 
-# data = request_cached("http://ip-api.com/json/23.43.252.19")
+data = request_cached("http://ip-api.com/json/23.43.252.19")
 
 # data = request_cached('https://api.github.com/events')
 
