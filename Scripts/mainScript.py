@@ -1,9 +1,16 @@
 import json
 import requests
 
+# Importing tkinter
+from tkinter import * 
+ 
+# Importing ttk from tkinter
+from tkinter import ttk 
+ 
+
+
 from cached_requests import request_cached
-
-
+import tree_view
 
 
 
@@ -17,28 +24,13 @@ app = Tk()
  
 # Defining title of the app
 app.title("GUI JSON viewer ") 
-
-
+print(cache)
+tree_view.create_treeview(app,cache)
  
 # Calling main() 
 app.mainloop()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print(request_cached("http://ip-api.com/json/23.43.252.19"))
+#print(request_cached("http://ip-api.com/json/23.43.252.19"))
 
 
 

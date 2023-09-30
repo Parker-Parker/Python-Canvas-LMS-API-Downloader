@@ -13,19 +13,19 @@ from tkinter import ttk
 
 
 
-def create_dict_treeview(master, data):
-    treeview = ttk.Treeview(master) 
-    add_item_treeview(treeview, " ", data)
+def create_treeview(master:Tk, data):
+    treeview = ttk.Treeview(master)
+    treeview.pack() 
+    add_item_treeview(treeview, "", data)
     return treeview
 
-def add_dict_treeview(treeview, section_title, data):
-    data = {}
+def add_dict_treeview(treeview:ttk.Treeview, section_title:str, data:dict):
     for key in data.keys():
         treeview.insert(section_title, 'end', key, text = key)
         add_item_treeview(treeview, key, data[key])
     
 
-def add_item_treeview(treeview, section_title, data):
+def add_item_treeview(treeview:ttk.Treeview, section_title:str, data):
     data_s = f'TODO: implement handling for {data}'
     treeview.insert(section_title, 'end', data_s, text = data_s)
     #TODO: make this handle dictionaries, lists, etc
