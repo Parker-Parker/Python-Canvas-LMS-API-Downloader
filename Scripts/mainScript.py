@@ -37,7 +37,7 @@ print(geo_data["status"])
 
 
 
-
+# http://ip-api.com/json/23.43.252.19
 
 
 
