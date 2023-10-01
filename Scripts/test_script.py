@@ -1,8 +1,11 @@
 
 from cached_requests import request_cached
 import json_viewer
+import tokens
 
-auth = {'Authorization': 'Bearer 11~snL2lXAyk50jMYNhV6hc5hj3Ga8vrWQvF2vuoiiYKAtCZtZLRMs3D9DyxMJFuZVC'} #canvas
+token_set = tokens.get_tokens()
+# print(token_set.keys())
+auth = {'Authorization': f'Bearer {token_set["canvas.instructure.com"]}'} #canvas
 
 data = request_cached('https://canvas.instructure.com/api/v1/courses', header=auth)
 json_viewer.new_window(data)
