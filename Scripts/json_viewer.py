@@ -28,7 +28,7 @@ def view_this(data):
 
 
 
-    print(json.dumps(data))
+    # print(json.dumps(data))
 
     tree_view.create_treeview(app,data)
      

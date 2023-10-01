@@ -7,7 +7,9 @@ token_set = tokens.get_tokens()
 # print(token_set.keys())
 auth = {'Authorization': f'Bearer {token_set["canvas.instructure.com"]}'} #canvas
 
-data = request_cached('https://canvas.instructure.com/api/v1/courses', header=auth)
+data = request_cached(f'https://canvas.instructure.com/api/v1/courses', header=auth)
+json_viewer.new_window(data)
+data = request_cached(f'https://canvas.instructure.com/api/v1/courses/{data[1]["id"]}', header=auth)
 json_viewer.new_window(data)
 
 
