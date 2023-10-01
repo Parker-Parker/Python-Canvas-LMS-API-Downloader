@@ -1,26 +1,17 @@
 
-import json
 from cached_requests import request_cached
 import json_viewer
 
+auth = {'Authorization': 'Bearer 11~snL2lXAyk50jMYNhV6hc5hj3Ga8vrWQvF2vuoiiYKAtCZtZLRMs3D9DyxMJFuZVC'} #canvas
 
-
-f = open('Downloads/cached_requests.json')
-data = json.load(f)
-f.close()
-json_viewer.new_window(data)
-
-data = request_cached("http://ip-api.com/json/23.43.252.19")
-json_viewer.new_window(data)
-
-data = request_cached('https://api.github.com/events')
+data = request_cached('https://canvas.instructure.com/api/v1/courses', header=auth)
 json_viewer.new_window(data)
 
 
 
+# curl -H "Authorization: Bearer <ACCESS-TOKEN>" "https://canvas.instructure.com/api/v1/courses"
 
-
-
+# r = requests.get('<MY_URI>', headers={'Authorization': 'TOK:<MY_TOKEN>'})
 
 # ////////////////////////////////////////////////////////////////
 # ////example treeview with lib////////////////////////////////////////////
