@@ -3,7 +3,7 @@ import requests
 import json
 
 
-def request_cached(url_string):
+def request_cached(url_string, header=False):
 
     # Opening JSON file
     f = open('Downloads/cached_requests.json')
@@ -24,8 +24,12 @@ def request_cached(url_string):
         #Grab web copy
         print(f"retrieved web copy of {url_string}")
 
+        if header == False:
+            r = requests.get(url_string)
+        else:
+            r = requests.get(url_string, headers=header)
 
-        r = requests.get(url_string)
+
         new_request = r.json()
         #Add to cache
 
