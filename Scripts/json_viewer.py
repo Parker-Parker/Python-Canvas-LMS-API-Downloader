@@ -10,7 +10,7 @@ import tree_view
 
 
 def new_window(data):
-    x = threading.Thread(target=view_this, args=(data))
+    x = threading.Thread(target=view_this, args=(data,))
     x.start()
     return x
 
